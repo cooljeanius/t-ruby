@@ -1,6 +1,6 @@
 language: ruby
-
-sudo: false
+os: linux
+dist: xenial
 
 rvm:
   - 2.4
@@ -11,7 +11,7 @@ rvm:
 
 bundler_args: --without development --jobs=3 --retry=3
 
-matrix:
+jobs:
   allow_failures:
     - rvm: ruby-head
   fast_finish: true
