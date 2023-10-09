@@ -14,3 +14,4 @@ pkg/*
 tmp/*
 .DS_Store
 .idea
+vendor/bundle/*
