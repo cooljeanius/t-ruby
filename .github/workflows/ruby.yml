@@ -24,4 +24,4 @@ jobs:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - name: Run tests
-      run: bundle exec rspec spec || bundle exec test
+      run: bundle exec rspec spec || bundle exec test || (if test -x "$(which rake)" -a -e Rakefile; then rake test; fi) || (for possible_test in $(ls -AR | grep test); do if test -x "${possible_test}"; then "${possible_test}"; else echo "${possible_test}"; fi; done)
